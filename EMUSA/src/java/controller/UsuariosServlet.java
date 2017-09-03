@@ -41,12 +41,9 @@ public class UsuariosServlet extends HttpServlet {
             uBL = new UsuariosBL();
             //**********************************************************************
             //se consulta cual accion se desea realizar
-            //**********************************************************************
-<<<<<<< HEAD
-            String accion = request.getParameter("accion3");
-=======
-            String accion = request.getParameter("accion2");
->>>>>>> mvch/prueba
+            //********************************************************************
+
+            String accion = request.getParameter("accion");
             switch (accion) {
                 case "validarUsuario":
                     usuario = uBL.findById(Integer.parseInt(request.getParameter("usuario")));
