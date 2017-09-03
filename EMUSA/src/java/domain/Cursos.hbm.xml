@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30-ago-2017 15:19:57 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="domain.Cursos" table="cursos" catalog="emusa" optimistic-lock="version">
+        <id name="idCurso" type="int">
+            <column name="id_curso" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="estudiantes" class="domain.Estudiantes" fetch="select">
+            <column name="ced_estudiante" />
+        </many-to-one>
+        <many-to-one name="horario" class="domain.Horario" fetch="select">
+            <column name="id_horario" />
+        </many-to-one>
+        <many-to-one name="profesores" class="domain.Profesores" fetch="select">
+            <column name="ced_profe" />
+        </many-to-one>
+        <property name="nombreCurso" type="string">
+            <column name="nombre_curso" length="10" />
+        </property>
+        <property name="idInstrumento" type="java.lang.Integer">
+            <column name="id_instrumento" />
+        </property>
+        <property name="estado" type="java.lang.Character">
+            <column name="estado" length="1" />
+        </property>
+        <set name="estudianteses" table="matricula" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_curso" not-null="true" />
+            </key>
+            <many-to-many entity-name="domain.Estudiantes">
+                <column name="id_estudiante" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

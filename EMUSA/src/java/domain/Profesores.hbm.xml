@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30-ago-2017 15:19:57 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="domain.Profesores" table="profesores" catalog="emusa" optimistic-lock="version">
+        <id name="cedula" type="int">
+            <column name="cedula" />
+            <generator class="foreign">
+                <param name="property">usuarios</param>
+            </generator>
+        </id>
+        <one-to-one name="usuarios" class="domain.Usuarios" constrained="true"></one-to-one>
+        <property name="telefono" type="java.lang.Integer">
+            <column name="telefono" />
+        </property>
+        <property name="celular" type="java.lang.Integer">
+            <column name="celular" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" length="30" />
+        </property>
+        <set name="cursoses" table="cursos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ced_profe" />
+            </key>
+            <one-to-many class="domain.Cursos" />
+        </set>
+    </class>
+</hibernate-mapping>

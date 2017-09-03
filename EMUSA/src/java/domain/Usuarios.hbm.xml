@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30-ago-2017 15:19:57 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="domain.Usuarios" table="usuarios" catalog="emusa" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="nick" type="string">
+            <column name="nick" length="20" />
+        </property>
+        <property name="contrasena" type="string">
+            <column name="contrasena" length="8" />
+        </property>
+        <property name="estado" type="java.lang.Character">
+            <column name="estado" length="1" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="20" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="apellido" length="30" />
+        </property>
+        <property name="role" type="string">
+            <column name="role" length="10" />
+        </property>
+        <one-to-one name="profesores" class="domain.Profesores"></one-to-one>
+        <one-to-one name="estudiantes" class="domain.Estudiantes"></one-to-one>
+    </class>
+</hibernate-mapping>

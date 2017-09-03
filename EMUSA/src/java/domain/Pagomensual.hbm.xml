@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30-ago-2017 15:19:57 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="domain.Pagomensual" table="pagomensual" catalog="emusa" optimistic-lock="version">
+        <id name="cedEstudiante" type="int">
+            <column name="ced_estudiante" />
+            <generator class="foreign">
+                <param name="property">estudiantes</param>
+            </generator>
+        </id>
+        <one-to-one name="estudiantes" class="domain.Estudiantes" constrained="true"></one-to-one>
+        <property name="mes" type="string">
+            <column name="mes" length="8" />
+        </property>
+        <property name="anno" type="java.lang.Integer">
+            <column name="anno" />
+        </property>
+        <property name="moroso" type="java.lang.Character">
+            <column name="moroso" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

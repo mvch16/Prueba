@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="emusa"/>
+  <table-filter match-name="cursos"/>
+  <table-filter match-name="padre"/>
+  <table-filter match-name="profesores"/>
+  <table-filter match-name="horario"/>
+  <table-filter match-name="estudiantes"/>
+  <table-filter match-name="pagomensual"/>
+  <table-filter match-name="usuarios"/>
+  <table-filter match-name="matricula"/>
+  <table-filter match-name="listaespera"/>
+</hibernate-reverse-engineering>

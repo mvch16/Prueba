@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30-ago-2017 15:19:57 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="domain.Estudiantes" table="estudiantes" catalog="emusa" optimistic-lock="version">
+        <id name="cedula" type="int">
+            <column name="cedula" />
+            <generator class="foreign">
+                <param name="property">usuarios</param>
+            </generator>
+        </id>
+        <many-to-one name="padre" class="domain.Padre" fetch="select">
+            <column name="cedula_padre" />
+        </many-to-one>
+        <one-to-one name="usuarios" class="domain.Usuarios" constrained="true"></one-to-one>
+        <property name="edad" type="java.lang.Integer">
+            <column name="edad" />
+        </property>
+        <property name="genero" type="java.lang.Character">
+            <column name="genero" length="1" />
+        </property>
+        <property name="dirreccion" type="string">
+            <column name="dirreccion" length="50" />
+        </property>
+        <property name="nomEscuela" type="string">
+            <column name="nom_escuela" length="20" />
+        </property>
+        <property name="grado" type="java.lang.Integer">
+            <column name="grado" />
+        </property>
+        <property name="adecuacion" type="string">
+            <column name="adecuacion" length="1" />
+        </property>
+        <property name="telefono" type="java.lang.Integer">
+            <column name="telefono" />
+        </property>
+        <property name="celular" type="java.lang.Integer">
+            <column name="celular" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" length="30" />
+        </property>
+        <property name="pagoMatricula" type="java.lang.Character">
+            <column name="pago_matricula" length="1" />
+        </property>
+        <one-to-one name="pagomensual" class="domain.Pagomensual"></one-to-one>
+        <set name="cursoses" table="matricula" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_estudiante" not-null="true" />
+            </key>
+            <many-to-many entity-name="domain.Cursos">
+                <column name="id_curso" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="cursoses_1" table="cursos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ced_estudiante" />
+            </key>
+            <one-to-many class="domain.Cursos" />
+        </set>
+        <one-to-one name="listaespera" class="domain.Listaespera"></one-to-one>
+    </class>
+</hibernate-mapping>

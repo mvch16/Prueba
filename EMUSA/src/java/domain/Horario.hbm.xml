@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30-ago-2017 15:19:57 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="domain.Horario" table="horario" catalog="emusa" optimistic-lock="version">
+        <id name="idHorario" type="int">
+            <column name="id_horario" />
+            <generator class="assigned" />
+        </id>
+        <property name="dia" type="string">
+            <column name="dia" length="10" />
+        </property>
+        <property name="horaInicio" type="time">
+            <column name="hora_inicio" length="8" />
+        </property>
+        <property name="horaFinal" type="time">
+            <column name="hora_final" length="8" />
+        </property>
+        <property name="lugar" type="string">
+            <column name="lugar" length="10" />
+        </property>
+        <property name="aula" type="java.lang.Integer">
+            <column name="aula" />
+        </property>
+        <property name="estado" type="java.lang.Character">
+            <column name="estado" length="1" />
+        </property>
+        <set name="cursoses" table="cursos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_horario" />
+            </key>
+            <one-to-many class="domain.Cursos" />
+        </set>
+    </class>
+</hibernate-mapping>

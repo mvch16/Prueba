@@ -1,0 +1,61 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.height25{
+    height: 25px;
+}
+
+.hiddenDiv{
+    display: none;
+}
+
+#encabezado{
+    height: 100px;
+    width: 100%;
+    background: darkblue;
+    color: white;
+}
+
+#encabezado h2{
+    position: relative; top: 10%; 
+    margin-top: 0;
+  
+    
+}
+.botones{
+    
+    position: relative;
+    rigth: 5%;
+    top: 10%;
+}
+
+#Sub-encabezado{
+    margin-top: -20px;
+    height: 50px;
+    width: 100%;
+    background:blue;
+    color: white;
+}
+
+#Sub-encabezado h2{
+    margin-left: 5%;
+}
+
+#tablaPreguntas{
+    margin-left: 10%;
+    margin-top: 5%;
+    width: 20%;
+    border: 2px solid black;
+}
+
+#enviar {
+
+}
+
+.btn {
+
+}
